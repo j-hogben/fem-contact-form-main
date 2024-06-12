@@ -1,0 +1,285 @@
+@font-face {
+  font-family: 'Karla';
+  src: url(/assets/fonts/Karla-VariableFont_wght.ttf);
+}
+
+:root {
+  /* COLORS */
+  --green-200: #E0F1E8;
+  --green-500: #86A2A5;
+  --green-600: #0C7D69;
+  --green-800: #123F35;
+  --green-900: #2A4144;
+  --white: #FFFFFF;
+  --red-error: #D73C3C;
+
+  /* TYPOGRAPHY */
+  --fs-body-s: 1rem; /* 16px */
+  --fs-body-m: 1.125rem; /* 18px */
+  --fs-heading: 2rem; /* 32px */
+
+  --lh-100: 100%;
+  --lh-150: 150%;
+
+  --ls-100: -1px;
+
+  --primary-heading-fs: var(--fs-heading);
+  --primary-heading-lh: var(--lh-100);
+  --primary-heading-ls: var(--ls-100);
+
+  --body-fs: var(--fs-body-s);
+  --body-lh: var(--lh-150);
+
+  /* SPACING */
+  --sp-100: 0.5rem; /* 8px */
+  --sp-150: 0.75rem; /* 12px */
+  --sp-200: 1rem; /* 16px */
+  --sp-300: 1.5rem; /* 24px */
+  --sp-400: 2rem; /* 32px */
+  --sp-500: 2.5rem; /* 40px */
+  --sp-1600: 8rem; /* 128px */
+
+  /* BORDER RADIUS */
+  --br-form: 1rem;
+  --br-success: 0.75rem;
+  --br-element: 0.5rem;
+
+  /* TRANSITIONS */
+  --tr-default: all 80ms ease-in;
+}
+
+/* Use a more-intuitive box-sizing model. */
+*, *::before, *::after, input {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove default textarea styles */
+textarea {
+  resize: none;
+  width: 100%;
+}
+
+/* Typographic tweaks!
+  Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove built-in form typography styles */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Make cursor pointer for input and label elements */
+input, .form-label-query, .consent-group label, textarea {
+  cursor: pointer;
+}
+
+/* Display block for label and error messages */
+label, span {
+  display: block;
+}
+
+/* MAIN STYLING */
+/* TYPOGRAPHY */
+body {
+  font-family: 'Karla';
+  font-size: var(--body-fs);
+  line-height: var(--body-lh);
+  color: var(--green-900);
+}
+
+h1 {
+  font-size: var(--primary-heading-fs);
+  line-height: var(--primary-heading-lh);
+  letter-spacing: var(--primary-heading-ls);
+  font-weight: bold;
+}
+
+.form-label-query,
+input[type="text"],
+textarea, 
+.message-sent,
+button {
+  font-size: var(--fs-body-m);
+}
+
+.message-sent {
+  font-weight: bold;
+}
+
+/* PAGE STYLING */
+body {
+  background-color: var(--green-200);
+  padding: var(--sp-400) var(--sp-200);
+}
+
+form {
+  background-color: var(--white);
+  padding: var(--sp-300);
+  border-radius: var(--br-form);
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: var(--sp-1600) var(--sp-500);
+  }
+
+  form {
+    padding: var(--sp-500);
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    padding: var(--sp-1600);
+  }
+}
+
+/* MAIN STYLING */
+/* TYPOGRAPHY */
+body {
+  font-family: 'Karla';
+  font-size: var(--body-fs);
+  line-height: var(--body-lh);
+  color: var(--green-900);
+}
+
+h1 {
+  font-size: var(--primary-heading-fs);
+  line-height: var(--primary-heading-lh);
+  letter-spacing: var(--primary-heading-ls);
+  font-weight: bold;
+}
+
+input[type="text"],
+.query-type,
+textarea, 
+button {
+  font-size: var(--fs-body-m);
+}
+
+/* FORM SPACING */
+form input[type="text"] {
+  width: 100%;
+}
+
+/* GRID LAYOUT */
+.grid-container {
+  --column-gap: var(--sp-200);
+  --row-gap: var(--sp-300);
+
+  display: grid;
+  column-gap: var(--column-gap);
+  row-gap: var(--row-gap);
+
+  .query-secondary-grid {
+    --row-gap: var(--sp-200);
+    display: grid;
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+  }
+}
+
+@media (min-width: 40em) {  
+  .fname-grid-item { grid-area: fname; }
+  .lname-grid-item { grid-area: lname; }
+  .email-grid-item { grid-area: email; }
+  .query-grid-item { grid-area: query; }
+  .message-grid-item { grid-area: message; }
+  .consent-grid-item { grid-area: consent; }
+  .submit-grid-item { grid-area: submit; }
+
+  .grid-container {
+    grid-template-areas: 
+    "fname lname"
+    "email email"
+    "query query"
+    "message message"
+    "consent consent"
+    "submit submit";
+
+    .general-grid-item { grid-area: gquery; }
+    .support-grid-item { grid-area: gsupport; }
+
+    .query-secondary-grid {
+      grid-template-areas: 
+      "gquery gsupport";
+    }
+  }
+}
+
+/* INPUT STYLING */
+input[type="text"],
+.query-type,
+textarea {
+  padding: var(--sp-150) var(--sp-300);
+}
+
+input[type="text"],
+.query-type {
+  border: 1px solid var(--green-500);
+  border-radius: var(--br-element); 
+}
+
+
+
+
+
+
+/* SUCCESS MESSAGE STYLING */
+.success-message {
+  display: none;
+
+  max-width: 28.125rem;
+  padding: var(--sp-300);
+  position: absolute;
+  top: var(--sp-300);
+  left: 0;
+  margin-inline: var(--sp-300);
+  background-color: var(--green-900);
+  border-radius: var(--br-success);
+  color: var(--white);
+
+  .top-message {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-100);
+  }
+
+  p {
+    margin-top: var(--sp-100);
+  }
+}
+
+@media (min-width: 31.0625rem) {
+  .success-message {
+    min-width: 28.125rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-inline: 0;
+  }
+}
+
+/* ERROR STYLING */
+.error-message {
+  color: var(--red-error);
+}
+
+.error-state {
+  border: 1px solid var(--red-error);
+}
