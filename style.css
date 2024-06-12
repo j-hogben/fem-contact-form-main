@@ -84,7 +84,7 @@ input, button, textarea, select {
 }
 
 /* Make cursor pointer for input and label elements */
-input, .query-type, .contact-consent, textarea {
+input, .query-type, .contact-consent, textarea, .submit-button {
   cursor: pointer;
 }
 
@@ -113,8 +113,12 @@ h1 {
 input[type="text"],
 textarea, 
 .message-sent,
-button {
+.submit-button {
   font-size: var(--fs-body-m);
+}
+
+.submit-button {
+  font-weight: bold;
 }
 
 .message-sent {
@@ -200,6 +204,10 @@ textarea {
   margin-top: var(--sp-200);
 }
 
+.consent-grid-item {
+  margin-block: var(--sp-200);
+}
+
 /* GRID LAYOUT */
 .grid-container {
   --column-gap: var(--sp-200);
@@ -254,10 +262,76 @@ textarea {
   border-radius: var(--br-element); 
 }
 
+input[type="text"]:hover,
+input[type="text"]:focus,
+.query-type:focus,
+.query-type:focus-within,
+textarea:hover,
+textarea:focus {
+  outline: none;
+  border-color: var(--green-600);
+}
+
+/* REQUIRED ASTERISK */
+.required::after {
+  content: '*';
+  position: relative;
+  margin-left: var(--sp-100);
+  color: var(--green-600);
+}
+
 /* QUERY SELECTION STYLING */
+.query-type {
+  --svg-width: 1.25rem;
+  --svg-margin: 0.140625rem;
+
+  position: relative;
+  padding-left: calc(var(--sp-300) +
+                     (var(--svg-margin) * 2) +
+                     var(--svg-width) + 
+                     var(--sp-150));
+  transition: var(--tr-default);
+
+  svg {
+    width: var(--svg-width);
+    margin-left: var(--svg-margin);
+    position: absolute;
+    left: var(--sp-300);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--tr-default);
+  }
+}
+
+.query-type input,
+.query-type .radio-checked {
+  opacity: 0;
+}
+
+.query-type input:checked + .radio-checked {
+  opacity: 1;
+}
 
 
+.query-type:has(input:checked) {
+  background-color: var(--green-200);
+}
 
+/* SUBMIT BUTTON STYLING */
+.submit-button {
+  width: 100%;
+  padding: var(--sp-200);
+  background-color: var(--green-600);
+  border: none;
+  border-radius: var(--br-element);
+  color: var(--white);
+  transition: var(--tr-default);
+}
+
+.submit-button:hover, 
+.submit-button:focus {
+  background-color: var(--green-800);
+}
 
 /* SUCCESS MESSAGE STYLING */
 .success-message {
@@ -295,6 +369,7 @@ textarea {
 
 /* ERROR STYLING */
 .error-message {
+  display: none;
   color: var(--red-error);
 }
 
