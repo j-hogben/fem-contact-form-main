@@ -67,6 +67,7 @@ img, picture, video, canvas, svg {
 
 /* Remove default textarea styles */
 textarea {
+  display: block;
   resize: none;
   width: 100%;
 }
@@ -83,7 +84,7 @@ input, button, textarea, select {
 }
 
 /* Make cursor pointer for input and label elements */
-input, .form-label-query, .consent-group label, textarea {
+input, .query-type, .contact-consent, textarea {
   cursor: pointer;
 }
 
@@ -178,6 +179,27 @@ form input[type="text"] {
   width: 100%;
 }
 
+.grid-container {
+  margin-top: var(--sp-400);
+}
+
+input[type="text"],
+textarea {
+  margin-top: var(--sp-100);
+}
+
+.query-label {
+  margin-bottom: var(--sp-200);
+}
+
+.error-message {
+  margin-top: var(--sp-100);
+}
+
+.query-error {
+  margin-top: var(--sp-200);
+}
+
 /* GRID LAYOUT */
 .grid-container {
   --column-gap: var(--sp-200);
@@ -228,15 +250,11 @@ input[type="text"],
 .query-type,
 textarea {
   padding: var(--sp-150) var(--sp-300);
-}
-
-input[type="text"],
-.query-type {
   border: 1px solid var(--green-500);
   border-radius: var(--br-element); 
 }
 
-
+/* QUERY SELECTION STYLING */
 
 
 
